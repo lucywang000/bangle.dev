@@ -50,7 +50,7 @@ module.exports = async (env, argv) => {
       entries.map((entry) => [entry.fileName, entry.path]),
     ),
     resolve: {
-      extensions: ['.jsx', '.js', '...'],
+      extensions: ['.jsx', '.js', '.tsx', '.ts', '...'],
       // TODO fix me punycode
       fallback: { punycode: require.resolve('punycode/') },
     },
@@ -82,6 +82,11 @@ module.exports = async (env, argv) => {
         {
           test: /\.(png|svg|jpg|gif)$/,
           use: ['file-loader'],
+        },
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
         },
         {
           test: /\.(js|jsx)$/,
