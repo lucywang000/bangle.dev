@@ -199,7 +199,7 @@ function getSelectionReferenceElement(view: EditorView) {
         right: right,
         bottom: bottom,
         left: left,
-      } as DOMRect;
+      };
     },
   };
 }
